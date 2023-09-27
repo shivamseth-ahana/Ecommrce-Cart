@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Welcome to Your Profile, {{ user.username }}</h1>
+    <h2>Your Ordered Items:</h2>
+    <ul>
+        {% for item in items %}
+            <li>
+                <strong>Order ID:</strong> {{ item.order_id }}<br>
+                <strong>Amount:</strong> {{ item.amount }}<br>
+                <strong>Address:</strong> {{ item.address1 }}, {{ item.address2 }}, {{ item.city }}, {{ item.state }}, {{ item.zip_code }}<br>
+                <strong>Phone:</strong> {{ item.phone }}<br>
+                <!-- Add any other fields you want to display -->
+            </li>
+        {% empty %}
+            <p>You have no orders.</p>
+        {% endfor %}
+    </ul>
+    <!-- You can also display the order status here if needed -->
+{% endblock %}
